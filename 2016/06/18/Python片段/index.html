@@ -1,0 +1,485 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Python片段 | Ricci&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Ricci_April">
+    
+
+    
+    <meta name="description" content="关于UUID今天开始针对Python简单地学习下，其实就说使用的话，依样画葫芦还是可以的，也并没有想说要成为Python大牛，毕竟无论当前职业还是未来要从事的职业，都不会以Python专职研究为主，但是呢，算是一个爱好吧。我觉得尤其在当前这种工作状态下，需要搞点类学术研究，coding是个很好的尝试，毕竟还是需要保留那么一丢丢地逻辑思维能力。
+编程语言这种东西，你一旦学过一种，就绝对无法再按照什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python片段">
+<meta property="og:url" content="http://yoursite.com/2016/06/18/Python片段/index.html">
+<meta property="og:site_name" content="Ricci's Blog">
+<meta property="og:description" content="关于UUID今天开始针对Python简单地学习下，其实就说使用的话，依样画葫芦还是可以的，也并没有想说要成为Python大牛，毕竟无论当前职业还是未来要从事的职业，都不会以Python专职研究为主，但是呢，算是一个爱好吧。我觉得尤其在当前这种工作状态下，需要搞点类学术研究，coding是个很好的尝试，毕竟还是需要保留那么一丢丢地逻辑思维能力。
+编程语言这种东西，你一旦学过一种，就绝对无法再按照什么">
+<meta property="og:updated_time" content="2016-06-18T16:30:29.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python片段">
+<meta name="twitter:description" content="关于UUID今天开始针对Python简单地学习下，其实就说使用的话，依样画葫芦还是可以的，也并没有想说要成为Python大牛，毕竟无论当前职业还是未来要从事的职业，都不会以Python专职研究为主，但是呢，算是一个爱好吧。我觉得尤其在当前这种工作状态下，需要搞点类学术研究，coding是个很好的尝试，毕竟还是需要保留那么一丢丢地逻辑思维能力。
+编程语言这种东西，你一旦学过一种，就绝对无法再按照什么">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Ricci&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Ricci&#39;s Blog" title="Ricci&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Ricci&#39;s Blog">Ricci&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Ricci is writing..</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/06/18/Python片段/" title="Python片段" itemprop="url">Python片段</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-18T11:34:38.000Z" itemprop="datePublished"> Published 2016-06-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于UUID"><span class="toc-number">1.</span> <span class="toc-text">关于UUID</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UUID"><span class="toc-number">1.1.</span> <span class="toc-text">UUID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python中的UUID"><span class="toc-number">1.2.</span> <span class="toc-text">Python中的UUID</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h3 id="关于UUID"><a href="#关于UUID" class="headerlink" title="关于UUID"></a>关于UUID</h3><p>今天开始针对Python简单地学习下，其实就说使用的话，依样画葫芦还是可以的，也并没有想说要成为Python大牛，毕竟无论当前职业还是未来要从事的职业，都不会以Python专职研究为主，但是呢，算是一个爱好吧。我觉得尤其在当前这种工作状态下，需要搞点类学术研究，coding是个很好的尝试，毕竟还是需要保留那么一丢丢地逻辑思维能力。</p>
+<p>编程语言这种东西，你一旦学过一种，就绝对无法再按照什么网上规划的初学者学习路线进行系统性学习了，毕竟很多东西都是一致的，无论思想还是技巧，只是某些规则不同而已，本质上差异不大。因此，决定后面通过研究别人的代码来学习，既有学习别人的良好Coding习惯，也可以借此领略大牛们的思维习惯，再通过其中涉及到边边角角相关知识补习，基本上也可以搭建起自己针对Python认知理解架构了。这里其他人的代码，从testing入手，深入源码。</p>
+<p>如小标题，此次就是从UUID开始的。好的，入正题，华丽丽的分割线。</p>
+<hr>
+<p>&ensp; </p>
+<h4 id="UUID"><a href="#UUID" class="headerlink" title="UUID"></a>UUID</h4><p>UUID的全称，Universally Unique Identifier，通用唯一识别码。这个很清楚，凡是编程过的人一般都会立刻嘴角上扬了。毕竟在实际代码工程中，要给某个对象也好、线程也好、或者其它，使用一个唯一的、不会重复的ID，很重要，就像数据库中的主键。目前最广泛应用的UUID，就是微软的GUID(Globally Unique Identifier)。</p>
+<p>UUID的生成规范定义的算法主要目的就是要保证其唯一性，当然这个唯一性是有限的，只有在特定的范围内才能得到保证，这和UUID的类型有关。后面细说。</p>
+<p>UUID是16字节（1Byte = 8bits）128位长的数字，通常以36位长度的16进制数表示，示例如下：</p>
+<blockquote>
+<p>3F2504E0-4F89-11D3-9A0C-0305E82C3301</p>
+</blockquote>
+<p>其中字母是16进制表示，大小写无关。</p>
+<p>具体来介绍UUID的内涵，可以从如下几个方面展开：</p>
+<ul>
+<li>经由一定的算法生成<br>为了保证UUID的唯一性，规范定义了包括网卡Mac地址、时间戳、名字空间(Namespace)、随机或伪随机数、时序等元素，以及以这些元素生成UUID的算法。UUID的复杂特性也保证了其唯一性的同时，意味着只能由计算机生成。</li>
+<li>非人工指定，非人工识别<br>UUID不能也不可能是人工指定的，除非冒着重复ID的风险。UUID的复杂性也决定了无法简单地分辨出UUID和对象之间的映射关系。</li>
+<li>在指定的范围内重复的可能性极小<br>UUID的生成规范定义的算法主要目的是要保证其唯一性，但这个唯一性也是有限的，从特定的名字空间到全球。只有在特定的范围内才能真正保证其唯一性。</li>
+</ul>
+<p>UUID有多个版本，每个版本的规范算法不同，应用范围也不同。<br>首先有一个特例，也就是Ni1 UUID，通常不会用到，其全部由0组成，如下：</p>
+<blockquote>
+<p>00000000-0000-0000-0000-000000000000</p>
+</blockquote>
+<ul>
+<li>Version 1：基于时间的UUID<br>基于时间的UUID通过计算当前时间戳、随机数和机器Mac地址得到。由于算法中使用了Mac地址，这个版本的UUID可以保证在全球范围的唯一性；当然，也同样带来了安全问题。如果应用只是在局域网内使用，也可以考虑退化的算法，以IP地址代替Mac地址（Java的UUID往往是这样实现的，当然也是考虑了获取Mac的难度）。</li>
+<li>Version 2：DCE安全的UUID<br>DCE(Distributed Computing Environment)安全的UUID和基于时间的UUID算法相同，但会把时间戳的前4位置换成POSIX的UID或GID。这个版本的UUID在实际中应用较少。</li>
+<li>Version 3：基于名字的UUID（MD5）<br>基于名字的UUDI通过计算名字和名字空间的MD5散列值得到。这个版本的UUID保证了：相同名字空间中不同名字生成的UUID的唯一性；不同名字空间中的UUID的唯一性；相同名字空间中相同名字的UUID重复生成是相同的。</li>
+<li>Version 4：随机UUID<br>根据随机数，或者伪随机数生成UUID。这种UUID产生重复的概率是可以计算出来的。</li>
+<li>Version 5：基于名字的UUID（SHA1）<br>和版本3的UUID算法类似，只是散列值计算使用SHA1（Secure Hash Algorithm 1）算法。</li>
+</ul>
+<p>从UUID的不同版本可以看出，Version 1/2适合应用于分布式计算环境下，具有高度的唯一性；Version 3/5适合于一定范围内名字唯一，且需要或可能会重复生成UUID的环境下；至于Version 4，一般不建议使用。<br>通常在标识对象或持久化数据时，推荐使用UUID作为唯一标识；但是以下情况不建议使用UUID：</p>
+<ul>
+<li>映射类型的对象，比如只有代码及名称的代码表。</li>
+<li>人工维护的非系统生成对象，比如系统中的部分基础数据。</li>
+</ul>
+<p>对于具有名称不会重复的自然特性的对象，建议使用Version3/5的UUID，比如系统中的用户。如果用户的UUID使用Version 1的，那么如果在删除该用户后再次重建时，就很不会再生成同样的UUID，相当于人还是那个人，但是用户已经不是那个用户了。</p>
+<p>&ensp; </p>
+<h4 id="Python中的UUID"><a href="#Python中的UUID" class="headerlink" title="Python中的UUID"></a>Python中的UUID</h4><p>Python在Lib/uuid.py模块中提供了针对UUID的支持。通过几个方法分别可以得到如上版本的UUID对象，不过Version 2的UUID，当前Python中暂时没有支持。其它的，<code>uuid.uuid1()</code>方法生成对应Version 1，<code>uuid.uuid3()</code>方法生成对应Version 3，<code>uuid.uuid4()</code>方法生成对应Version 4， <code>uuid.uuid5()</code>方法生成对应Version 5。</p>
+<p>同样如上，由于<code>uuid4()</code>存在概率性重复，且无映射性，最好不要使用。</p>
+<p>最后附上一段代码，可以测试下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import uuid</span><br><span class="line"></span><br><span class="line">name = &quot;test_name&quot;</span><br><span class="line">namespace = &quot;test_namespace&quot;</span><br><span class="line"></span><br><span class="line">print uuid.uuid1()  # 带参的方法参见Python Doc</span><br><span class="line">print uuid.uuid3(namespace, name)</span><br><span class="line">print uuid.uuid4()</span><br><span class="line">print uuid.uuid5(namespace, name)</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/06/18/Python片段/" data-title="Python片段 | Ricci&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/06/12/破/"  title="破">
+ <strong>下一篇：</strong><br/> 
+ <span>破
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于UUID"><span class="toc-number">1.</span> <span class="toc-text">关于UUID</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UUID"><span class="toc-number">1.1.</span> <span class="toc-text">UUID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python中的UUID"><span class="toc-number">1.2.</span> <span class="toc-text">Python中的UUID</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/金刚经/" title="金刚经">金刚经<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Ricci_April">Ricci_April</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
