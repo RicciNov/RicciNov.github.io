@@ -94,12 +94,10 @@
 </header>
     <div class="article-content">
         
-        <p>###有关Python中的列表</p>
-<p>今天针对Python中的列表类知识进行规整，值得准备写之前才突然发现一件事，好像Python中没有数组这个类型，虽然好像有个array内置模块。但前面浏览的基础知识中，不过就是列表、元祖、字典，也就是list、tuple、dictionary，反而其他语言中最基本的数据类型——数组，丝毫没有踪影。见惯了Python的不羁，也许就没那么当回事儿了。估计list可以搞定一切吧。</p>
+        <h3 id="有关Python中的列表"><a href="#有关Python中的列表" class="headerlink" title="有关Python中的列表"></a>有关Python中的列表</h3><p>今天针对Python中的列表类知识进行规整，值得准备写之前才突然发现一件事，好像Python中没有数组这个类型，虽然好像有个array内置模块。但前面浏览的基础知识中，不过就是列表、元祖、字典，也就是list、tuple、dictionary，反而其他语言中最基本的数据类型——数组，丝毫没有踪影。见惯了Python的不羁，也许就没那么当回事儿了。估计list可以搞定一切吧。</p>
 <p>进入正题，先从List开始吧，隐藏的分割线。</p>
 <hr>
-<p>#####List</p>
-<ul>
+<h5 id="List"><a href="#List" class="headerlink" title="List"></a>List</h5><ul>
 <li>list的表现方式和定义方式，就是[]中的数据；</li>
 <li>list中的数据类型可以不一致，这与强类型定义语言中不同；</li>
 <li>列表是可变的，不仅是某个索引上的值可变，包括列表的长度也是；</li>
@@ -107,8 +105,7 @@
 <p>遍历方式，一般就是用for…in…方式，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for cheese in cheeses:</span><br><span class="line">	print(cheese)</span><br></pre></td></tr></table></figure></p>
 <p>如果说是需要涉及到下标/索引操作了，可以引用内置函数<code>range()</code>，此函数提供了一个数量序列，结合长度函数<code>len()</code>，可以达到想要的效果，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in range(len(numbers)):</span><br><span class="line">	numbers[i] = numbers[i] * 2</span><br></pre></td></tr></table></figure></p>
 <p>关于列表的操作，无所谓那么通用的几项，类似于数据库操作的”增删修选”，以及列表中经常用到的归并、映射、筛选，排序等。</p>
-<p>######基本操作，也就是”增删修选”；</p>
-<ul>
+<h6 id="基本操作，也就是”增删修选”；"><a href="#基本操作，也就是”增删修选”；" class="headerlink" title="基本操作，也就是”增删修选”；"></a>基本操作，也就是”增删修选”；</h6><ul>
 <li>增加<br>具体的增加又有如下几种方式：<br>1）<code>+</code>运算符，<code>*</code>运算符，前者是将两个列表拼接在一起，后者是按照一定的次数重复当前列表；两者都属于纯函数类型操作，也就是会生成新的列表；<br>2）<code>append()</code>函数，用以添加单个元素；属于修改器类型操作；<br>3）<code>extend()</code>函数，用以添加某个列表；属于修改器类型操作；</li>
 <li>删除<br>1）<code>pop()</code>函数，通过提供索引<strong>移除</strong>相应的元素，返回被移除元素，如果不提供参数，默认移除列表中最后一个元素；属于修改器类型操作；<br>2）<code>del</code>运算符，该运算符的强大在于，可以删除一个或者多个元素，配合切片（slice）操作使用；属于修改器类型操作，不过其不是函数，而是内置的运算符，后面提供某个元素对象，如<code>list[2]</code>；<br>3）<code>remove()</code>函数，其与<code>pop()</code>类似，不同的在于其接收的参数是元素的值，而不是元素所在的索引，另外它也没有返回值；属于修改器类型操作；</li>
 <li><p>修改<br>这个就没什么好说的，就是选择相应的索引，改变值；当然后面的很多衍生操作，是在其基础上建立起来的。切片操作slice在这里特别提一下，其一种使用方法可以快速修改列表中的部分元素，如下：</p>
@@ -117,8 +114,7 @@
 <li><p>选择<br>这个也没什么好说的，就是使用形如<code>list[index]</code>方式选择元素，或者使用切片<code>list[index1:index2]</code>方式。需要指出，切片操作属于纯函数类型操作，其会生成一个新的列表。</p>
 </li>
 </ul>
-<p>######衍生操作，说是衍生也不确切，毕竟很多底层操作也没那么简单可以归结于基本操作，但姑且这么称呼吧，总比“高级操作”要更准确些。包括，归并、映射、筛选、排序等；</p>
-<ul>
+<h6 id="衍生操作，说是衍生也不确切，毕竟很多底层操作也没那么简单可以归结于基本操作，但姑且这么称呼吧，总比“高级操作”要更准确些。包括，归并、映射、筛选、排序等；"><a href="#衍生操作，说是衍生也不确切，毕竟很多底层操作也没那么简单可以归结于基本操作，但姑且这么称呼吧，总比“高级操作”要更准确些。包括，归并、映射、筛选、排序等；" class="headerlink" title="衍生操作，说是衍生也不确切，毕竟很多底层操作也没那么简单可以归结于基本操作，但姑且这么称呼吧，总比“高级操作”要更准确些。包括，归并、映射、筛选、排序等；"></a>衍生操作，说是衍生也不确切，毕竟很多底层操作也没那么简单可以归结于基本操作，但姑且这么称呼吧，总比“高级操作”要更准确些。包括，归并、映射、筛选、排序等；</h6><ul>
 <li><p>归并<br>也算用过其他语言码过代码，只是归并这个概念，倒是很生疏。</p>
 <blockquote>
 <p>将一系列的元素合并成一个单一值的操作有时称为归并（reduce）。</p>
