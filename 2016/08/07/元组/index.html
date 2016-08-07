@@ -1,0 +1,452 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>元组 | Ricci&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Ricci_April">
+    
+
+    
+    <meta name="description" content="元组Tuple若干知识接触的语言不多，仅仅真正使用过的也就是java，以及一些web前端语言，我记得使用java开发项目的时候，基本上肯定会自定义一个基本类型，就是tuple，作为工具类，从最初的包括2个常驻数据一直衍生至多个，当然这个类的原型是在《Thinking in java》中看到的，很实用；比如很多时候需要方法返回多个返回值，放在List中不方便，一个是每个函数/方法返回值的数量不一定统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="元组">
+<meta property="og:url" content="http://yoursite.com/2016/08/07/元组/index.html">
+<meta property="og:site_name" content="Ricci's Blog">
+<meta property="og:description" content="元组Tuple若干知识接触的语言不多，仅仅真正使用过的也就是java，以及一些web前端语言，我记得使用java开发项目的时候，基本上肯定会自定义一个基本类型，就是tuple，作为工具类，从最初的包括2个常驻数据一直衍生至多个，当然这个类的原型是在《Thinking in java》中看到的，很实用；比如很多时候需要方法返回多个返回值，放在List中不方便，一个是每个函数/方法返回值的数量不一定统">
+<meta property="og:updated_time" content="2016-08-07T09:38:23.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="元组">
+<meta name="twitter:description" content="元组Tuple若干知识接触的语言不多，仅仅真正使用过的也就是java，以及一些web前端语言，我记得使用java开发项目的时候，基本上肯定会自定义一个基本类型，就是tuple，作为工具类，从最初的包括2个常驻数据一直衍生至多个，当然这个类的原型是在《Thinking in java》中看到的，很实用；比如很多时候需要方法返回多个返回值，放在List中不方便，一个是每个函数/方法返回值的数量不一定统">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Ricci&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Ricci&#39;s Blog" title="Ricci&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Ricci&#39;s Blog">Ricci&#39;s Blog</a></h1>
+				<h2 class="blog-motto">Ricci is writing..</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/08/07/元组/" title="元组" itemprop="url">元组</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-07T08:31:55.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#元组Tuple若干知识"><span class="toc-number">1.</span> <span class="toc-text">元组Tuple若干知识</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="元组Tuple若干知识"><a href="#元组Tuple若干知识" class="headerlink" title="元组Tuple若干知识"></a>元组Tuple若干知识</h3><p>接触的语言不多，仅仅真正使用过的也就是java，以及一些web前端语言，我记得使用java开发项目的时候，基本上肯定会自定义一个基本类型，就是tuple，作为工具类，从最初的包括2个常驻数据一直衍生至多个，当然这个类的原型是在《Thinking in java》中看到的，很实用；比如很多时候需要方法返回多个返回值，放在List中不方便，一个是每个函数/方法返回值的数量不一定统一，但是又想一眼看出来，另一方面返回的类型不一定一致，这在强调强类型的java语言中，无法简单实用list来集合，因此每次结合泛型和tuple，是一个很好的解决方案。</p>
+<p>没想到，Python中专门有这种数据结构，并且地位和List，Dictionary一样，并且内置了很多函数，便于针对其操作及与其他序列转换。</p>
+<p>Tuple系统性的介绍的话，没必要，只需要知道一点核心的，它和List是很像的，作为序列集合，其同样内置了==整数索引==，并且同一个tuple中的元素可以是不同类型的数据，但不同的点在于，其在首次定义后就不能再改变，一旦改变了其实就相当于生成了新的tuple，原tuple肯定是不会变化的，这一点很类似于字符串。另外，tuple一般使用“（）”，但是也不强制，可以简单地使用逗号分隔开元素即可。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;jack&apos;, 1, 2.5)</span><br><span class="line">m = &apos;jj&apos;, &apos;kk&apos;, &apos;ll&apos;</span><br><span class="line">yy = &apos;queen&apos;,</span><br></pre></td></tr></table></figure></p>
+<p>Tuple另一个很有意思的地方就是使用它赋值。使用元组赋值简直就是各种爽。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a, b = b, a </span><br><span class="line">/*这个赋值就是在其他地方会让人很头疼的，两个变量变换下引用数值，其它语言中都是如下：</span><br><span class="line">temp = a</span><br><span class="line">a = b</span><br><span class="line">b = temp</span><br><span class="line">而上述的元组赋值，其表达的是，等号左侧是变量组成的元组，而右侧是表达式组成的元组，每个值都被赋给了对应的变量，变量在被重新赋值前，将先对右侧的表达式进行求值。相当于下述：</span><br><span class="line">a, b = 1, 2</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">addr = &apos;monty@python.org&apos;</span><br><span class="line">uname, domain = addr.split(&apos;@&apos;)//这也是元组赋值法，直接赋值给两个变量，并且两个变量组成了一个元组</span><br><span class="line"></span><br><span class="line">另外在循环迭代时，每次都会将元素赋值给临时变量，也是如此，方便很多：</span><br><span class="line">t = [(&apos;a&apos;, 0), (&apos;b&apos;, 1), (&apos;c&apos;, 2)]</span><br><span class="line">//这里就是将列表中每个元素（这里的元素是元组类型）直接赋值给同样是元组类型的临时变量letter,number</span><br><span class="line">for letter, number in t:  </span><br><span class="line">	print(number, letter)</span><br></pre></td></tr></table></figure></p>
+<p>使用Tuple赋值很好使，很有意思，方便快捷，程序变得更优雅；这里就不太多展开，反正就是妙处无处不在。后续需要慢慢探索领略。</p>
+<p>Tuple的另一个妙处就是在用作函数的返回值，这个在刚开始的时候有说过，多用于需要返回多个值的场景。但同样因此也衍生了很多有趣、功能强大的用处。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//首先举个栗子。Python中有个内建函数divmod，其接受两个实参，返回包含两个值的元组：商和余数。</span><br><span class="line">&gt;&gt;&gt;t = divmod(7, 3)</span><br><span class="line">&gt;&gt;&gt;t</span><br><span class="line">(2, 1)</span><br><span class="line"></span><br><span class="line">//或者结合上面的使用元组赋值分别存储它们</span><br><span class="line">&gt;&gt;&gt;quot, rem = divmod(7, 5)</span><br><span class="line">&gt;&gt;&gt;quot</span><br><span class="line">2</span><br><span class="line">&gt;&gt;&gt;rem</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>应用到函数中，不仅使返回值可以由单一变为多个，也可以使参数由不变长度变为可变长度。具体包括两个地方，一是在函数定义时，可以将形参定义为元组类型，由此可以接收任意数量的参数；二是在函数调用时，可以将实参使用元组类型，同样是传递了多个参数。上述说法可能不清晰，其实本质是，在传递参数时，可以汇聚（gather）或者分散（scatter），灵活使用元组，时而汇聚多个参数为一个元组，时而分散一个元组为多个参数，就可以真正的适用于不同的函数接收参数了。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//printall可以接收任意数量的参数，并且将它们打印出来</span><br><span class="line">//下面的args才是真正的参数，但是定义函数时加一个“*”就代表了，其可以接收多个参数，因为这多个参数会被</span><br><span class="line">//汇聚为一个元组，而从在函数体中具体执行的是对元组的操作</span><br><span class="line">def printall(*args):</span><br><span class="line">	print(args)</span><br><span class="line"></span><br><span class="line">//下面的函数本身是只能接收两个实参的，元组再这么说也只是一个参数，单独传递肯定是会报错的，但是如果将其</span><br><span class="line">//分散，也就是将元组中的元素（其中肯定是只能有2个元素）单独拿出来传递，肯定是正确的方式；打散的话同样的</span><br><span class="line">//的是使用“*”</span><br><span class="line">&gt;&gt;&gt;t = (7, 3)</span><br><span class="line">&gt;&gt;&gt;divmod(t)</span><br><span class="line">TypeError: divmod expected 2 arguments, got 1</span><br><span class="line">&gt;&gt;&gt;divmod(*t)</span><br><span class="line">(2, 1)</span><br></pre></td></tr></table></figure></p>
+<p>其他的关于Tuple和Dict，List，String等之间的转换，或者相互结合使用，这里就不一一单列了，应该是在具体使用时可能会感悟更多些。</p>
+<p>图书馆要关门了，赶紧结束了。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/08/07/元组/" data-title="元组 | Ricci&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/08/03/字典/"  title="字典">
+ <strong>下一篇：</strong><br/> 
+ <span>字典
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#元组Tuple若干知识"><span class="toc-number">1.</span> <span class="toc-text">元组Tuple若干知识</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/金刚经/" title="金刚经">金刚经<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Ricci_April">Ricci_April</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
