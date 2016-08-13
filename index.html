@@ -47,7 +47,7 @@
 				<h1 class="site-name"><a href="/" title="Ricci&#39;s Blog">Ricci&#39;s Blog</a></h1>
 				<h2 class="blog-motto">Ricci is writing..</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -63,7 +63,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -81,6 +81,86 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/08/13/类与对象/" title="类与对象" itemprop="url">类与对象</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
+		
+  <p class="article-time">
+    <time datetime="2016-08-13T10:37:18.000Z" itemprop="datePublished"> Published 2016-08-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="Python中的类与对象"><a href="#Python中的类与对象" class="headerlink" title="Python中的类与对象"></a>Python中的类与对象</h3><p>关于类与对象，自然是编程模式的一种——面向对象（Object Oriented, OO）中的主要特点元素。作为学java入门编程的，对这个更是由衷地感到熟悉亲切。世界万物都是对象，而所有对象都由类实例化来的。搭建解空间、程序设计，均是以类作为基础元素。<br>然而Python中的类与对象还是有些特别，也许这就是解释型动态语言与静态语言的区别所带来的实质性感受。</p>
+<p>不系统的讲解类与对象，而是针对其与静态语言（主要是Java）中不同的地方展开。我觉得主要从类属性与实例属性、绑定概念、多重继承三个方面叙述，另外类中的方法涉及诸多，包括定义方式、解释器默认地特殊方法等，也会掺杂其中。</p>
+<h5 id="类属性与实例属性"><a href="#类属性与实例属性" class="headerlink" title="类属性与实例属性"></a>类属性与实例属性</h5><p>这里首先要强调的有如下两句话，</p>
+<blockquote>
+<p>类和实例都是命名空间（namespace），类是类属性的命名空间，实例则是实例属性的命名空间。</p>
+</blockquote>
+<p>还有就是：</p>
+<blockquote>
+<p>如果说类是一种数据结构定义类型，那么实例则声明了一个这种类型的变量。</p>
+</blockquote>
+<p>我觉得，如果能够仔细理解了如上两句话，基本上就明白了类与实例之间剪不断理还乱的关系。不是计算机科班出身，也没有系统性地研究过计算机相关知识，但是通过看过的听过的掌握的，认为所谓的程序语言其实就是在处理计算机内存的问题，内存地使用涉及到了成本和效率，如何在有限成本下高效利用内存，其反应到了上层就是计算机解决问题的能力和速度。当前存在如此多的程序语言，其设计创建的初衷也肯定是因为在某些特定环境下，前面的语言不好使，后面的语言才出现了。数据结构的设计同样如此。</p>
+<p>类是一种程序员可以自定义的数据类型，是构建解决问题空间的基本元素，而实例就是使用该类型创建出的对象，对应实际问题中的各个角色。这也能说明了两者的关系，实例是有类衍生出来的，在强类型语言中，类中定义了什么属性（数据和函数），实例中才能拥有什么属性，不可能自己创造，由于属性值不同才造成了实例的不同（当然这样说，有些函数式编程语言的特点，准确说，可能要说引用不同）；而弱类型语言中，实例或者内建类型的变量，可以在运行时自行改变属性方法等。在这种情况下，Python应该是弱类型语言了。因为，Python中的实例，可以自行添加属性，这些属性与类中的属性其实是没有关系的。这也直接导致了实例与类的关系，不在是上下层关系，类似于平行关系了。</p>
+<p>也就是从另一个角度看，类与实例都是命名空间，类是类属性的命名空间，实例是实例属性的命名空间；两者并行存在着，其中能连接两者的，貌似也就是实例与类的对应关系了。</p>
+<p>理解了上述，其实关于类数据属性、实例数据属性，很清晰就可以看出其存在的意义，而这也是与Java语言的不同点之一。Java中同一个类实例化出来的所有对象，都拥有同样的属性类型（重载、泛化暂不谈），而Python中的同一个类实例化出来的不同对象，可不一定了，因为每个实例都自主拥有自行定义实例属性的权利和能力了。</p>
+<p>类空间和实例空间的并行，有点类似于静态数据和动态数据。</p>
+<h5 id="绑定关系"><a href="#绑定关系" class="headerlink" title="绑定关系"></a>绑定关系</h5><p>绑定（binding）的存在，大概觉得应该是和底层数据的组建关系有关，但是为什么其他语言没有呢，貌似这也是Python语言有意思的地方。</p>
+<p>绑定关系，指的是，在Python中，所有类方法的调用，必须要有调用者，这个调用者不能是Python解释器，当然实际上的调用中介肯定是解释器，只是在某个方法被调用的时候，必须要标明到底是哪个实例或者类在调用它，那么把这个调用者（实例或者类）与方法联系起来就是绑定。</p>
+<p>另外，方法仅仅是类内部定义的函数（这意味着方法是类属性而非实例属性），一般方法被调用是必须要在类实例化后，将实例传递给方法，也就是绑定后；否则方法是不能被调用的。当然，现在还有一种静态方法和类方法，可以直接由类调用，当然也可以由实例调用，并没有任何不同。</p>
+<p>这也是方法中形参的第一个通常是self的原因，其代表了接收到的绑定实例；在由实例调用方法时，可以省去手工传递该参数，解释器会帮我们完成将该实例传递给self的动作。</p>
+<h5 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h5><p>多重继承本来是比较简单的事情，但是困难地是，如果在子类有多个父类时，其可能继承多个相同或者类似的方法，因为在子类重载方法时，必须要先对父类的方法做点儿什么，那如何在多个父类中找到该方法呢，这里就存在着一个算法，即方法解释顺序（MRO），其是解释器内部的逻辑。<br>简单点儿，我们要做的就是使用<code>super(type[, obj])</code>来有解释器自行找到子类的父类，然后调用相应方法。<br>这里针对多重继承不再多累述，后续需要专门研究下。但是对<code>super(type[, obj])</code>再具体介绍下，毕竟这个是切实关系到使用的。这个方法返回参数type的父类。如果你希望父类被绑定，可以传入obj参数，但是这个obj必须是type类型的（或者其子类），否则父类不会被绑定。obj参数也可以是一个类，但它应当是type的一个子类。通常，当给出obj时：</p>
+<ul>
+<li>如果obj是一个实例，<code>isinstance(obj, type)</code>就必须返回True；</li>
+<li>如果obj是一个类或者类型，<code>issubclass(obj, type)</code>就必须返回True；</li>
+</ul>
+<p>最后，属性<code>_mro_</code>包含了子类的所有的父类，并按照查找顺序排列。事实上，<code>super()</code>方法也就是在<code>_mro_</code>中包含的父类中查找，并由接收到的参数来界定查找起点等。</p>
+<p>本来想多写点，一方面是本身就没这么研究彻底，实用太少理解不够；另一方面，太饿了，时间有点晚了。先到这里吧，马上要进入实训阶段，估计会感悟更多。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python/">Python</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/08/07/元组/" title="元组" itemprop="url">元组</a>
   </h1>
   <p class="article-author">By
@@ -88,7 +168,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-07T08:31:55.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
+    <time datetime="2016-08-07T08:31:55.000Z" itemprop="datePublished"> Published 2016-08-07</time>
     
   </p>
 </header>
@@ -151,7 +231,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-08-03T13:46:52.000Z" itemprop="datePublished"> 发表于 2016-08-03</time>
+    <time datetime="2016-08-03T13:46:52.000Z" itemprop="datePublished"> Published 2016-08-03</time>
     
   </p>
 </header>
@@ -217,7 +297,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-31T04:24:56.000Z" itemprop="datePublished"> 发表于 2016-07-31</time>
+    <time datetime="2016-07-31T04:24:56.000Z" itemprop="datePublished"> Published 2016-07-31</time>
     
   </p>
 </header>
@@ -303,7 +383,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-18T11:34:38.000Z" itemprop="datePublished"> 发表于 2016-06-18</time>
+    <time datetime="2016-06-18T11:34:38.000Z" itemprop="datePublished"> Published 2016-06-18</time>
     
   </p>
 </header>
@@ -396,7 +476,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-12T13:50:29.000Z" itemprop="datePublished"> 发表于 2016-06-12</time>
+    <time datetime="2016-06-12T13:50:29.000Z" itemprop="datePublished"> Published 2016-06-12</time>
     
   </p>
 </header>
@@ -463,7 +543,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-09T06:34:06.000Z" itemprop="datePublished"> 发表于 2016-06-09</time>
+    <time datetime="2016-06-09T06:34:06.000Z" itemprop="datePublished"> Published 2016-06-09</time>
     
   </p>
 </header>
@@ -518,7 +598,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-29T13:30:09.000Z" itemprop="datePublished"> 发表于 2016-05-29</time>
+    <time datetime="2016-05-29T13:30:09.000Z" itemprop="datePublished"> Published 2016-05-29</time>
     
   </p>
 </header>
@@ -583,7 +663,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-29T08:32:06.000Z" itemprop="datePublished"> 发表于 2016-05-29</time>
+    <time datetime="2016-05-29T08:32:06.000Z" itemprop="datePublished"> Published 2016-05-29</time>
     
   </p>
 </header>
@@ -639,7 +719,7 @@
 		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-22T04:59:26.000Z" itemprop="datePublished"> 发表于 2016-05-22</time>
+    <time datetime="2016-05-22T04:59:26.000Z" itemprop="datePublished"> Published 2016-05-22</time>
     
   </p>
 </header>
@@ -711,70 +791,16 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/05/17/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Ricci_April" target="_blank" itemprop="author">Ricci_April</a>
-		
-  <p class="article-time">
-    <time datetime="2016-05-17T15:25:50.619Z" itemprop="datePublished"> 发表于 2016-05-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -784,11 +810,11 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Python/" title="Python">Python<sup>5</sup></a></li>
+				<li><a href="/tags/Python/" title="Python">Python<sup>6</sup></a></li>
 			
 		
 			
@@ -804,7 +830,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -820,7 +846,7 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -966,7 +992,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
